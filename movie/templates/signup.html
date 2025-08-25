@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Signup Success{% endblock %}
+
+{% block content %}
+    <div class="py-5 text-center">
+        <h2>Added {{ email }} to mailing list</h2>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+{% endblock %}
