@@ -1,4 +1,4 @@
- <!-- <h1>Welcome to Home Page</h1> -->
+<!-- <h1>Welcome to Home Page</h1> -->
 {% extends "base.html" %}
 
 {% block title %}Movie Reviews{% endblock %}
@@ -6,7 +6,6 @@
 {% block content %}
     <div class="py-4">
         <h1 class="text-center mb-4">Welcome to Home Page, {{ name }}</h1>
-
 
         <form method="get" class="mb-4">
             <div class="mb-3">
@@ -50,6 +49,19 @@
             {% empty %}
                 <p class="text-center">No movies found matching your search.</p>
             {% endfor %}
+        </div>
+
+        <!-- Sección de Signup -->
+        <div class="mt-5 mb-4">
+            <h2>Join our mailing list:</h2>
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="email" class="form-label">Enter your email:</label>
+                    <input type="email" class="form-control" name="email" id="email" required />
+                </div>
+                <button type="submit" class="btn btn-success">Sign Up</button>
+            </form>
         </div>
 
         <footer class="text-center mt-5">

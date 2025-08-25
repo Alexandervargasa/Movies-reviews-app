@@ -7,9 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1f81ea;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">
+            <a class="navbar-brand {% if request.resolver_match.url_name == 'home' %}fw-bold{% endif %}" href="{% url 'home' %}">
                 {% load static %}
                 <img src="{% static 'images/home.png' %}" alt="" width="30" height="24"
                     class="d-inline-block align-text-top" />
@@ -21,16 +21,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active fw-bold{% endif %}" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'news' %}">News</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'news' %}active fw-bold{% endif %}" href="{% url 'news' %}">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'statistics' %}active fw-bold{% endif %}" href="{% url 'statistics' %}">Statistics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
                     </li>
                 </ul>
             </div>
