@@ -7,9 +7,9 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movie/images/')
     Released = models.DateField(default='2000-01-01')
     url = models.URLField(blank=True)
-    genre = models.CharField(max_length=50)
-    duration = models.PositiveIntegerField()  # Duración en minutos
-    rating = models.DecimalField(max_digits=3, decimal_places=1)  # Calificación de 0.0 a 10.0
+    genre = models.CharField(max_length=50, default='unknown')
+    duration = models.PositiveIntegerField(default=120)  # Duración en minutos
+    rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)  # Calificación de 0.0 a 10.0
 
     def __str__(self):
         return self.title
